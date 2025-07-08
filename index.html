@@ -1,0 +1,330 @@
+<artifact identifier="mianmian-api-index" type="text/html" title="index.html 文件内容"> <!DOCTYPE html> <html lang="zh-CN"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>眠眠のAPI</title> <style> * { margin: 0; padding: 0; box-sizing: border-box; transition: all 0.3s ease; }
+TEXT
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        background: linear-gradient(180deg, #fff5f5 0%, #ffe4e1 25%, #ffd1dc 50%, #ffb6c1 75%, #ffc0cb 100%);
+        min-height: 100vh;
+        padding-bottom: 50px;
+    }
+    
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    .header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    .welcome-img {
+        width: 200px;
+        border-radius: 20px;
+        box-shadow: 0 8px 16px rgba(255, 182, 193, 0.4);
+        animation: float 3s ease-in-out infinite;
+    }
+    
+    h1 {
+        color: #ff1493;
+        margin: 20px 0 10px 0;
+        text-shadow: 2px 2px 4px rgba(255, 182, 193, 0.5);
+        font-size: 32px;
+    }
+    
+    .subtitle {
+        color: #ff69b4;
+        font-size: 16px;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 20px;
+        display: inline-block;
+        padding: 10px 25px;
+        backdrop-filter: blur(10px);
+        line-height: 1.5;
+    }
+    
+    .card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        padding: 25px;
+        border-radius: 20px;
+        margin: 20px 0;
+        box-shadow: 0 8px 32px rgba(255, 105, 180, 0.2);
+    }
+    
+    .section-title {
+        color: #ff1493;
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    
+    #fortune-text {
+        text-align: center;
+        color: #d63384;
+        font-size: 18px;
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 10px;
+        line-height: 1.5;
+    }
+    
+    .fortune-btn {
+        background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 25px;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+        display: block;
+        margin: 15px auto;
+        font-weight: 500;
+    }
+    
+    .fortune-btn:hover {
+        transform: translateY(-2px) scale(1.05);
+        box-shadow: 0 6px 20px rgba(255, 105, 180, 0.5);
+    }
+    
+    .fortune-btn:active {
+        transform: translateY(0) scale(0.98);
+    }
+    
+    #fortune-animation {
+        text-align: center;
+        margin-top: 10px;
+        font-size: 30px;
+        opacity: 0;
+        transition: opacity 0.5s, transform 0.5s;
+    }
+    
+    .mood-container {
+        display: flex;
+        justify-content: space-around;
+        font-size: 35px;
+        padding: 10px;
+        margin: 15px 0;
+    }
+    
+    .mood-emoji {
+        cursor: pointer;
+        user-select: none;
+        padding: 5px;
+    }
+    
+    .mood-emoji:hover {
+        transform: scale(1.2) translateY(-5px);
+        filter: drop-shadow(0 5px 10px rgba(255, 105, 180, 0.3));
+    }
+    
+    #mood-response {
+        text-align: center;
+        color: #d63384;
+        margin-top: 15px;
+        font-size: 16px;
+        min-height: 25px;
+        font-weight: 500;
+        line-height: 1.5;
+        opacity: 1;
+        transition: opacity 0.3s;
+    }
+    
+    #mood-hearts {
+        text-align: center;
+        font-size: 20px;
+        margin-top: 10px;
+        opacity: 0;
+        transition: opacity 0.5s, transform 0.5s;
+    }
+    
+    .feature-list {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .feature-list li {
+        padding: 12px 10px;
+        color: #ff1493;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    
+    .feature-list strong {
+        font-weight: 600;
+    }
+    
+    .footer {
+        text-align: center;
+        margin-top: 40px;
+    }
+    
+    .footer-img {
+        width: 150px;
+        border-radius: 15px;
+        box-shadow: 0 8px 16px rgba(255, 182, 193, 0.3);
+        animation: float 3s ease-in-out infinite;
+    }
+    
+    .footer-text {
+        color: #ff1493;
+        margin-top: 15px;
+        font-size: 14px;
+        background: rgba(255, 255, 255, 0.6);
+        padding: 15px;
+        border-radius: 15px;
+        display: inline-block;
+        line-height: 1.5;
+    }
+    
+    .footer-text small {
+        color: #ff69b4;
+        display: block;
+        margin-top: 5px;
+    }
+    
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0px); }
+    }
+    
+    @media (max-width: 768px) {
+        h1 { font-size: 28px; }
+        .section-title { font-size: 18px; }
+        .subtitle { font-size: 14px; }
+        .fortune-btn { font-size: 14px; padding: 10px 20px; }
+        .feature-list li { font-size: 14px; }
+    }
+</style>
+</head> <body> <div class="container"> <div class="header"> <img src="https://media.giphy.com/media/3oz8xIsloV7zOmt81G/giphy.gif" alt="可爱的猫咪招手" class="welcome-img"> <h1>🌸 眠眠のAPI 🌸</h1> <p class="subtitle"> 这里是一个温柔又可爱的API服务站点<br> 希望能为你的每一天带来便利和快乐 💕 </p> </div>
+TEXT
+    <div class="card">
+        <h2 class="section-title">🎀 今日小确幸</h2>
+        <div id="fortune-text">点击下方按钮，获取今日份的小幸运~</div>
+        <button class="fortune-btn" onclick="getFortune()">🌟 抽取幸运签</button>
+        <div id="fortune-animation">✨💕✨</div>
+    </div>
+    
+    <div class="card">
+        <h2 class="section-title">💖 小小心情日记</h2>
+        <p style="color: #ff69b4; text-align: center; margin-bottom: 5px;">今天的心情如何呢？</p>
+        <div class="mood-container">
+            <span class="mood-emoji" onclick="recordMood('happy')">😊</span>
+            <span class="mood-emoji" onclick="recordMood('love')">🥰</span>
+            <span class="mood-emoji" onclick="recordMood('sleepy')">😴</span>
+            <span class="mood-emoji" onclick="recordMood('excited')">🎉</span>
+            <span class="mood-emoji" onclick="recordMood('calm')">😌</span>
+        </div>
+        <p id="mood-response"></p>
+        <div id="mood-hearts">💕💕💕</div>
+    </div>
+    
+    <div class="card">
+        <h2 class="section-title">🌈 贴心小功能</h2>
+        <ul class="feature-list">
+            <li>🔑 <strong>API密钥管理</strong> - 安全便捷地管理你的密钥</li>
+            <li>📊 <strong>使用统计</strong> - 可视化查看API调用情况</li>
+            <li>💬 <strong>实时客服</strong> - 有问题随时找眠眠聊天哦</li>
+            <li>🎁 <strong>积分商城</strong> - 使用API累积积分，兑换小礼物</li>
+        </ul>
+    </div>
+    
+    <div class="footer">
+        <img src="https://media.giphy.com/media/26xBwdIuRJiAIqHwA/giphy.gif" alt="可爱的兔子" class="footer-img">
+        <p class="footer-text">
+            Made with 💕 by 眠眠
+            <small>每一个API调用都是一次温柔的陪伴</small>
+        </p>
+    </div>
+</div>
+
+<script>
+    // 幸运签内容 - 更加可爱温柔的话语
+    const fortunes = [
+        "今天的你就像小太阳一样闪闪发光呢 ☀️💕",
+        "会有一个甜甜的梦在今晚等你哦 🌙✨",
+        "有个小天使正在为你准备惊喜 👼🎁",
+        "你的笑容是世界上最美的魔法 🌸😊",
+        "今天适合吃点甜甜的东西犒劳自己 🍰💖",
+        "会遇到让你心跳加速的美好瞬间 💗🦋",
+        "你值得所有的温柔和宠爱 🌹👑",
+        "好运气像棉花糖一样软软地包围着你 ☁️🍭",
+        "今天的你格外可爱，要自信一点哦 🎀✨",
+        "会收到一份来自宇宙的温暖拥抱 🌌🤗"
+    ];
+    
+    // 抽取幸运签 - 增加点击反馈
+    function getFortune() {
+        const fortuneText = document.getElementById('fortune-text');
+        const animation = document.getElementById('fortune-animation');
+        
+        // 显示动画
+        animation.style.opacity = '1';
+        animation.style.transform = 'scale(1.2)';
+        
+        // 淡出文字
+        fortuneText.style.opacity = '0';
+        
+        setTimeout(() => {
+            // 随机选择幸运签
+            const randomIndex = Math.floor(Math.random() * fortunes.length);
+            fortuneText.textContent = fortunes[randomIndex];
+            fortuneText.style.opacity = '1';
+            
+            // 隐藏动画
+            setTimeout(() => {
+                animation.style.opacity = '0';
+                animation.style.transform = 'scale(1)';
+            }, 1500);
+        }, 300);
+    }
+    
+    // 记录心情 - 增加点击反馈
+    function recordMood(mood) {
+        const responses = {
+            'happy': '开心的你最可爱啦~ 要一直保持好心情哦 💄✨',
+            'love': '恋爱的感觉像吃了蜜糖~ 祝你永远甜甜蜜蜜 💕🍯',
+            'sleepy': '困困的小可爱要好好休息~ 做个美梦哦 🌙💤',
+            'excited': '哇！是什么让你这么兴奋呀~ 分享快乐双倍快乐 🎊🎈',
+            'calm': '平静也是一种美好~ 享受这份宁静时光吧 🌊🕊️'
+        };
+        
+        const moodResponse = document.getElementById('mood-response');
+        const hearts = document.getElementById('mood-hearts');
+        const clickedEmoji = event.target;
+        
+        // 添加点击动画
+        clickedEmoji.style.transform = 'scale(1.5) rotate(10deg)';
+        clickedEmoji.style.filter = 'drop-shadow(0 0 10px rgba(255, 105, 180, 0.7))';
+        
+        // 显示爱心动画
+        hearts.style.opacity = '1';
+        hearts.style.transform = 'translateY(-10px)';
+        
+        // 更新回应文字
+        moodResponse.style.opacity = '0';
+        
+        setTimeout(() => {
+            moodResponse.textContent = responses[mood];
+            moodResponse.style.opacity = '1';
+            
+            // 恢复表情大小
+            setTimeout(() => {
+                clickedEmoji.style.transform = 'scale(1) rotate(0deg)';
+                clickedEmoji.style.filter = 'none';
+                
+                // 隐藏爱心
+                setTimeout(() => {
+                    hearts.style.opacity = '0';
+                    hearts.style.transform = 'translateY(0)';
+                }, 2000);
+            }, 300);
+        }, 200);
+    }
+</script>
+</body> </html> </artifact>
